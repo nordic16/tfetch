@@ -1,5 +1,7 @@
-pub trait Provider {
-    pub fn get_name(name: &str);
-    pub fn get_base_url(url: &str);
-    pub fn fetch_results(query: &str);
+pub mod braflix;
+
+pub trait Provider: Default {
+    fn get_name(&self) -> &str;
+    fn get_base_url(&self) -> &str;
+    fn fetch_results(&self, query: &str) -> anyhow::Result<()>;
 }
