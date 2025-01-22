@@ -2,6 +2,7 @@ pub mod cli;
 pub mod providers;
 pub mod tests;
 
-pub(crate) fn main() -> anyhow::Result<()> {
-    cli::tfetch::run()
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    cli::tfetch::run().await
 }
